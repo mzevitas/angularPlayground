@@ -8,64 +8,49 @@
     <!-- build:css styles/vendor.css -->
     <!-- bower:css -->
     <link rel="stylesheet" href="../bower_components/normalize-css/normalize.css" />
+    <link type="text/css" rel="stylesheet" href="../bower_components/materialize/dist/css/materialize.min.css"  media="screen,projection"/>
     <!-- endbower -->
     <!-- endbuild -->
-    <link href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">
+  
     <!-- build:css styles/main.css -->
     <link rel="stylesheet" href="styles/main.css">
     <!-- endbuild -->
 </head>
 
-<body ng-app="News" ng-controller="MainCtrl">
-
-<div class="row">
-    <div class="col-md-6 col-md-offset-3">
-
-      <div class="page-header">
-        <h1>Best Blog</h1>
-      </div>
-
-      <div ng-repeat="post in posts | orderBy:'-upvotes'">
+<body ng-app="News">
 
 
-        <span class="glyphicon glyphicon-thumbs-up"
-          ng-click="incrementUpvotes(post)"></span>
+   
 
 
-        Total Votes: {{post.upvotes}}
-        <span style="font-size:20px; margin-left:10px;">
-          <a ng-show="post.link" href="{{post.link}}">
-            {{post.title}}
-          </a>
-          <span ng-hide="post.link">
-            {{post.title}}
-          </span>
-        </span>
-      <span class="glyphicon glyphicon-thumbs-down"
-          ng-click="incrementDownvotes(post)"></span>
-      </div>
 
-      <form ng-submit="addPost()"
-        style="margin-top:30px;">
-        <h3>Add a new post</h3>
+    
+        <ul ng-controller="ListCtrl">
+             <li ng-repeat="l in lists"> {{ l.title }} <span ng-click="deleteMe(l.objectId, $index)">X</span></li> 
 
-        <div class="form-group">
-          <input type="text"
-            class="form-control"
-            placeholder="Title"
-            ng-model="title"></input>
-        </div>
-        <div class="form-group">
-          <input type="text"
-          class="form-control"
-          placeholder="Link"
-          ng-model="link"></input>
-        </div>
-        <button type="submit" class="btn btn-primary">Post</button>
+          
+            </li>
+        </ul>
+
+
+
+     <!-- Modal Trigger -->
+  <a class="waves-effect waves-light btn modal-trigger" href="#modal1">Modal</a>
+
+  <!-- Modal Structure -->
+  <div id="modal1" class="modal">
+    <div class="modal-content">
+      <form ng-submit="addList(list)" ng-controller="ListCtrl"  target="_self">
+        <input type="text" ng-model="list.title" placeholder="Title" >
+     
+    <div class="modal-footer">
+      <a href="/" class=" modal-action modal-close waves-effect waves-green btn-flat"><button type="submit">Submit</button></a>
+    </div>
+
       </form>
-
     </div>
   </div>
+          
 
 
     <!-- build:js scripts/vendor.js -->
@@ -74,10 +59,16 @@
     <script src="../bower_components/underscore/underscore.js"></script>
     <script src="../bower_components/angular/angular.min.js"></script>
     <script src="../bower_components/angular-route/angular-route.min.js"></script>
+    <script src="../bower_components/angular-cookies/angular-cookies.min.js"></script>
+    <script src="../bower_components/materialize/dist/js/materialize.min.js"></script>
+
+
     <!-- endbower -->
     <!-- endbuild -->
     <!-- build:js scripts/main.js -->
     <script src="scripts/app.js"></script>
+    <script src="scripts/lists/listscontroller.js"></script>
+    <script src="scripts/lists/listfactory.js"></script>
     <!-- endbuild -->
 </body>
 

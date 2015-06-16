@@ -6,6 +6,8 @@
     "underscore": "~1.6.0",
     "normalize-css": "~3.0.1",
     "angular": "~1.4.0",
-    "angular-route": "~1.4.0"
+    "angular-route": "~1.4.0",
+    "angular-cookies": "~1.4.1",
+    "materialize": "~0.96.1"
   }
 }
