@@ -19,7 +19,8 @@
       $scope.addList = function (listObj) {
         $scope.list = {};
         ListsFactory.add(listObj).success( function (results) {
-          // listObj.objectId = results.objectId;
+          listObj.objectId = results.objectId;
+          
         
           $scope.lists.push(listObj);
         // $scope.lists.push({title: $scope.title, upvotes: 0});

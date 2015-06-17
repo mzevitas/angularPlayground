@@ -59,7 +59,7 @@
       <form ng-submit="addList(list)" ng-controller="ListCtrl"  action=''>
         <input type="text" ng-model="list.title" placeholder="Title" >
         <input type="text" ng-model="list.artist" placeholder="Band/Artist"> 
-        <input type="text" ng-model="list.setOrder" placeholder="Set Order">
+        <input type="number" ng-model="list.setOrder" value="1">
 
      
     <div class="modal-footer">
@@ -81,6 +81,7 @@
     <script src="../bower_components/angular-cookies/angular-cookies.min.js"></script>
     <script src="../bower_components/materialize/dist/js/materialize.min.js"></script>
     <script src="../bower_components/jquery-ui/jquery-ui.min.js"></script>
+
     
 
 
