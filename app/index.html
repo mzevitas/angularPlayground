@@ -25,26 +25,45 @@
 
 
     
-        <ul ng-controller="ListCtrl">
-             <li ng-repeat="l in lists"> {{ l.title }} <span ng-click="deleteMe(l.objectId, $index)">X</span></li> 
-
-          
+        <ul ng-controller="ListCtrl" id="sortable1" class="connectedSortable">
+        <h4>Master List</h4>
+             <li ng-repeat="l in lists " class="ui-state-default">
+             <!-- <span ng-click="incrementsetOrder(l)">^</span>  -->
+             {{ l.title }} - {{ l.artist }} 
+             <span class-"delete" ng-click="deleteMe(l.objectId, $index)">X</span></li> 
             </li>
+        </ul>
+        <ul id="sortable2" class="connectedSortable">
+         <h4>Set 1</h4>
+          
+        </ul>
+        <ul id="sortable3" class="connectedSortable">
+         <h4>Set 2</h4>
+          
+        </ul>
+        <ul id="sortable4" class="connectedSortable">
+         <h4>Set 3</h4>
+          
         </ul>
 
 
 
+<br>
+
      <!-- Modal Trigger -->
-  <a class="waves-effect waves-light btn modal-trigger" href="#modal1">Modal</a>
+  <a id="btnAdd" class="waves-effect waves-light btn modal-trigger" href="#modal1">Add Song</a>
 
   <!-- Modal Structure -->
   <div id="modal1" class="modal">
     <div class="modal-content">
       <form ng-submit="addList(list)" ng-controller="ListCtrl"  action=''>
         <input type="text" ng-model="list.title" placeholder="Title" >
+        <input type="text" ng-model="list.artist" placeholder="Band/Artist"> 
+        <input type="text" ng-model="list.setOrder" placeholder="Set Order">
+
      
     <div class="modal-footer">
-      <a href="/" class=" modal-action modal-close waves-effect waves-green btn-flat" ><button type="submit">Submit</button></a>
+      <a href="#/" class=" modal-action modal-close waves-effect waves-green btn-flat" ><button type="submit">Submit</button></a>
     </div>
 
       </form>
@@ -61,6 +80,8 @@
     <script src="../bower_components/angular-route/angular-route.min.js"></script>
     <script src="../bower_components/angular-cookies/angular-cookies.min.js"></script>
     <script src="../bower_components/materialize/dist/js/materialize.min.js"></script>
+    <script src="../bower_components/jquery-ui/jquery-ui.min.js"></script>
+    
 
 
     <!-- endbower -->

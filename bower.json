@@ -8,6 +8,7 @@
     "angular": "~1.4.0",
     "angular-route": "~1.4.0",
     "angular-cookies": "~1.4.1",
-    "materialize": "~0.96.1"
+    "materialize": "~0.96.1",
+    "jquery-ui": "~1.11.4"
   }
 }

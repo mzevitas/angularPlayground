@@ -20,12 +20,16 @@
         $scope.list = {};
         ListsFactory.add(listObj).success( function (results) {
           // listObj.objectId = results.objectId;
+        
           $scope.lists.push(listObj);
         // $scope.lists.push({title: $scope.title, upvotes: 0});
           cache.remove('https://api.parse.com/1/classes/list');
 
-        
+        // $scope.incrementsetOrder = function(l) {
+        //     l.setOrder += 1;
+        //     };
         });
+
 
       };
 
